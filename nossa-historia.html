@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<!-- Declara que este é um documento HTML5 -->
+
+<html lang="pt-br">
+<!-- Define o idioma principal do conteúdo como português do Brasil -->
+
+<head>
+  <meta charset="UTF-8" />
+  <!-- Define o conjunto de caracteres como UTF-8, permitindo acentuação e caracteres especiais -->
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Garante que o layout da página seja responsivo, adaptando-se a celulares, tablets e desktops -->
+
+  <title>Nossa História - Tuti Gourmet</title>
+  <!-- Título que aparece na aba do navegador -->
+
+  <link rel="stylesheet" href="styles.css" />
+  <!-- Linka o arquivo CSS externo com todos os estilos visuais da página -->
+</head>
+
+<body>
+  <!-- Início do corpo da página, tudo que é visível ao usuário está aqui -->
+
+  <!-- ======= CABEÇALHO COM LOGO E NAVEGAÇÃO ======= -->
+  <header>
+    <!-- Cabeçalho fixo que fica no topo da página com logo e menu -->
+
+    <img src="./img/logotuti.png" alt="Logo Tuti Gourmet" />
+    <!-- Logo da Tuti Gourmet. Ajuste o caminho se a imagem estiver em outra pasta -->
+
+    <nav>
+      <!-- Área de navegação do site -->
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <!-- Redireciona para a página principal -->
+
+        <li><a href="nossa-historia.html">Nossa História</a></li>
+        <!-- Link da página atual -->
+
+        <li><a href="faça-seu-pedido.html">Faça Seu Pedido</a></li>
+        <!-- Redireciona para a página de pedidos ou contato -->
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ======= SEÇÃO PRINCIPAL COM CONTEÚDO ======= -->
+  <section
+    class="container"
+    style="
+      padding-top: 150px;
+      padding-left: 60px;
+      padding-right: 60px;
+    "
+  >
+    <!-- 
+      Esta section é o container do conteúdo principal.
+      - padding-top: 150px → Cria espaço entre o topo da página e o conteúdo, afastando do header fixo.
+      - padding-left/right: 60px → Garante que o conteúdo não fique grudado nas bordas laterais.
+    -->
+
+    <div
+      style="
+        display: flex; /* Usando Flexbox para alinhar imagem e texto na horizontal */
+        align-items: center; /* Alinha verticalmente ao centro */
+        justify-content: center; /* Centraliza o grupo (imagem + texto) na seção */
+        flex-wrap: wrap; /* Permite que os itens quebrem linha em telas pequenas */
+        gap: 50px; /* Espaçamento pequeno e consistente entre os blocos */
+        max-width: 1000px; /* Limita a largura máxima do container flex para não esticar demais */
+        margin: 0 auto; /* Centraliza o container flex horizontalmente na tela */
+      "
+    >
+      <!-- 
+        Este "div" organiza o layout horizontal com flexbox:
+        - display: flex → Elementos ficam lado a lado (imagem e texto).
+        - align-items: center → Alinha verticalmente o conteúdo.
+        - justify-content: center → Centraliza os blocos juntos.
+        - flex-wrap: wrap → Em telas pequenas, os blocos se empilham automaticamente.
+        - gap → Espaçamento controlado entre imagem e texto.
+        - max-width + margin auto → centraliza o conteúdo dentro da seção.
+      -->
+
+      <!-- ========== BLOCO DA IMAGEM (à esquerda) ========== -->
+      <div
+        style="
+          flex: 1 1 350px; /* Permite que o bloco cresça e encolha com base 350px */
+          max-width: 300px; /* Limita a largura máxima da imagem */
+        "
+      >
+        <!-- 
+          flex: 1 1 350px → O bloco pode crescer e encolher, com tamanho base 350px.
+          max-width: 400px → Limita a largura da imagem para que não fique muito grande.
+        -->
+
+        <img
+          src="./img/foto-nossa-historia.png"
+          alt="Foto da história da Tuti Gourmet"
+          style="
+            width: 100%; /* Ocupa todo o espaço do container */
+            border-radius: 20px; /* Cantos arredondados para visual suave */
+            display: block; /* Remove espaçamento extra que imagens inline criam abaixo */
+          "
+        />
+        <!-- 
+          Imagem ilustrativa da história da marca.
+          - width: 100% → Ocupa todo o espaço do container dela.
+          - border-radius: 20px → Arredonda os cantos da imagem para um visual mais suave.
+          - display: block → Remove espaçamento extra abaixo da imagem.
+        -->
+      </div>
+
+      <!-- ========== BLOCO DO TEXTO (à direita) ========== -->
+      <div
+        style="
+          flex: 2 1 500px; /* O bloco de texto ocupa mais espaço e é flexível */
+          max-width: 600px; /* Limita a largura do texto para melhor leitura */
+          text-align: left; /* Alinha o texto à esquerda */
+          /* margin-left removido para aproximar o texto da imagem */
+        "
+      >
+        <!-- 
+          flex: 2 1 500px → O bloco de texto ocupa mais espaço e é flexível.
+          max-width: 600px → Limita a largura do texto para melhor leitura.
+          text-align: left → Alinha todo o texto à esquerda.
+          margin-left removido para aproximar do bloco da imagem.
+        -->
+
+        <h1 style="margin-bottom: 30px;">Nossa Trajetória</h1>
+        <!-- 
+          Título principal da seção.
+          margin-bottom: 30px → Cria espaço abaixo do título antes do texto começar.
+        -->
+
+        <p>
+          <!-- Texto principal da seção. Pode ser alterado com sua história verdadeira. -->
+
+          Tudo começou com um sonho: o desejo de criar doces artesanais feitos com amor.
+          Muito antes de se tornar realidade, esse sonho já fazia parte da minha vida.<br /><br />
+
+          Me chamo <strong>Letícia Carvalho</strong>, e ao lado do meu esposo
+          <strong>Romário</strong>, transformamos esse sonho em um projeto de vida:
+          a <strong>Tuti Gourmet</strong>. Juntos, unimos paixão, dedicação e carinho em cada
+          receita, sempre buscando oferecer o melhor para vocês.<br /><br />
+
+          Mais do que uma confeitaria, a Tuti Gourmet é uma extensão do nosso lar —
+          onde cada doce carrega uma história, um cuidado especial e o sabor único de algo feito com
+          amor.<br /><br />
+
+          Sejam bem-vindos à nossa doce jornada!
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 
+    Fim da seção principal.
+    Se quiser adicionar um rodapé (footer), pode colocá-lo aqui abaixo.
+  -->
+</body>
+</html>

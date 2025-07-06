@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<!-- Declara que este é um documento HTML5 -->
+
+<html lang="pt-br">
+<!-- Define que o idioma da página é Português do Brasil -->
+
+<head>
+  <meta charset="UTF-8" />
+  <!-- Define a codificação de caracteres para UTF-8, permitindo acentos e caracteres especiais -->
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Torna a página responsiva, ou seja, adaptável para dispositivos móveis -->
+
+  <title>FP Selection</title>
+  <!-- Título que aparece na aba do navegador -->
+
+  <!-- Fonte cursiva do Google Fonts para dar um estilo mais doce e delicado -->
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+
+  <!-- Link para o arquivo CSS externo com os estilos personalizados -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <!-- ========================= INÍCIO DO CABEÇALHO ========================= -->
+  <header>
+    <!-- Área superior da página contendo o logo e a navegação -->
+
+    <img src="./img/logotuti.png" alt="Logo Tuti Gourmet" />
+    <!-- Logo da doceria (garanta que a imagem esteja na pasta correta) -->
+
+    <nav>
+      <!-- Menu de navegação principal -->
+      <ul>
+        <li><a href="index.html">Home</a></li> <!-- Link para esta página principal -->
+        <li><a href="nossa-historia.html">Nossa História</a></li> <!-- Página com a trajetória da marca -->
+        <li><a href="faça-seu-pedido.html">Faça Seu Pedido</a></li> <!-- Página de contato/pedido -->
+      </ul>
+    </nav>
+  </header>
+  <!-- ========================= FIM DO CABEÇALHO ========================= -->
+
+  <!-- ========================= INÍCIO DA SEÇÃO PRINCIPAL ========================= -->
+  <section class="container">
+    <!-- Container principal com os itens do carrossel -->
+
+    <div class="list">
+      <!-- Lista de produtos (do tipo carrossel) -->
+
+      <!-- === ITEM 1: BOLO DE NINHO === -->
+      <div class="item active">
+        <div class="car-img">
+          <img src="./img/1.png" alt="Bolo de Ninho" />
+        </div>
+        <div class="content">
+          <p class="car-information">R$11</p>
+          <h2 style="font-family: 'Pacifico', cursive;">Bolinho de Ninho</h2>
+          <p class="description">
+          </p>
+          <button class="information" onclick="openModal('modal-1')">Saiba Mais</button>
+        </div>
+      </div>
+
+      <!-- === ITEM 2: BOMBOM NO POTE === -->
+      <div class="item">
+        <div class="car-img">
+          <img src="./img/2.png" alt="Bombom no Pote" />
+        </div>
+        <div class="content">
+          <p class="car-information">R$10</p>
+          <h2 style="font-family: 'Pacifico', cursive;">Bombom no Pote</h2>
+          <p class="description">
+          </p>
+          <button class="information" onclick="openModal('modal-2')">Saiba Mais</button>
+        </div>
+      </div>
+
+      <!-- === ITEM 3: ESCONDIDINHO DE BROWNIE === -->
+      <div class="item">
+        <div class="car-img">
+          <img src="./img/3.png" alt="Escondidinho de Brownie" />
+        </div>
+        <div class="content">
+          <p class="car-information">R$14</p>
+          <h2 style="font-family: 'Pacifico', cursive;">Escondidinho de Brownie</h2>
+          <p class="description">
+          </p>
+          <button class="information" onclick="openModal('modal-3')">Saiba Mais</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- SETAS DE NAVEGAÇÃO DO CARROSSEL -->
+    <div class="arrows">
+      <button id="prev">
+        <img src="./img/arrow.svg" alt="Seta para esquerda" />
+      </button>
+      <button id="next">
+        <img src="./img/arrow.svg" alt="Seta para direita" />
+      </button>
+    </div>
+
+    <!-- INDICADORES DO SLIDE ATUAL -->
+    <div class="indicators">
+      <div class="number">01</div>
+      <ul>
+        <li class="active"></li>
+        <li></li>
+        <li></li>
+      </ul>
+    </div>
+  </section>
+  <!-- ========================= FIM DA SEÇÃO PRINCIPAL ========================= -->
+
+  <!-- ========================= MODAIS (SAIBA MAIS) ========================= -->
+
+  <!-- Modal do Bolo de Ninho -->
+  <div id="modal-1" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('modal-1')">&times;</span>
+      <h3 style="font-family: 'Pacifico', cursive;">Bolo de Ninho</h3>
+      <p>
+        Massa de bolo branca super leve, saborosa e molhadinha com recheio cremoso de leite ninho e finalizado no leite em pó ninho.
+      </p>
+    </div>
+  </div>
+
+  <!-- Modal do Bombom no Pote -->
+  <div id="modal-2" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('modal-2')">&times;</span>
+      <h3 style="font-family: 'Pacifico', cursive;">Bombom no Pote</h3>
+      <p>
+        Uvas ou morangos + uma camada de recheio cremoso de leite ninho, finalizado com uma deliciosa ganache de chocolate.
+      </p>
+    </div>
+  </div>
+
+  <!-- Modal do Escondidinho de Brownie -->
+  <div id="modal-3" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('modal-3')">&times;</span>
+      <h3 style="font-family: 'Pacifico', cursive;">Escondidinho de Brownie</h3>
+      <p>
+        Pedaço de brownie macio e chocolatudo, finalizado com um delicioso recheio cremoso: brigadeiro ou ninho com Nutella.
+      </p>
+    </div>
+  </div>
+
+  <!-- ========================= SCRIPTS ========================= -->
+
+  <!-- JavaScript principal (carrossel) -->
+  <script src="./scripts.js"></script>
+
+  <!-- Funções para abrir e fechar os modais -->
+  <script>
+    function openModal(id) {
+      document.getElementById(id).style.display = 'flex';
+    }
+
+    function closeModal(id) {
+      document.getElementById(id).style.display = 'none';
+    }
+  </script>
+
+</body>
+
+</html>
