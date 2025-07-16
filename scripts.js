@@ -1,145 +1,144 @@
-// ---------------------- VARIÁVEIS GLOBAIS ----------------------
-
-// Botões de navegação do carrossel
-let prevButton = document.getElementById('prev');
-let nextButton = document.getElementById('next');
-
-// Container principal e itens do carrossel
-let container = document.querySelector('.container');
-let items = container.querySelectorAll('.list .item');
-
-// Indicadores (bolinhas e número)
-let indicator = document.querySelector('.indicators');
-let dots = indicator.querySelectorAll('ul li');
-let list = container.querySelector('.list');
-
-// Controle do índice ativo (item que está visível)
-let active = 0;
-
-// Último índice possível (último item do carrossel)
-let lastPosition = items.length - 1;
-
-// ---------------------- FUNÇÃO PARA ATUALIZAR SLIDE ----------------------
-
-/**
- * Atualiza o carrossel para mostrar o slide de índice newIndex.
- * Aplica a direção para animação visual (slide para esquerda ou direita).
- * @param {number} newIndex - Índice do novo slide a ser exibido.
- * @param {string} direction - 'left' ou 'right', para direção da animação.
- */
-function updateSlide(newIndex, direction) {
-    // Remove as classes da imagem e conteúdo do slide atualmente ativo
-    let currentItem = items[active];
-    currentItem.classList.remove('active');
-    currentItem.classList.remove('to-left');
-    currentItem.classList.remove('to-right');
-
-    // Remove classes de direção do novo slide para "resetar"
-    let newItem = items[newIndex];
-    newItem.classList.remove('to-left');
-    newItem.classList.remove('to-right');
-
-    // Aplica a direção da animação ao novo slide
-    if (direction === 'right') {
-        newItem.classList.add('to-right');
-    } else {
-        newItem.classList.add('to-left');
-    }
-
-    // Força reflow para garantir que a animação aconteça corretamente
-    void newItem.offsetWidth;
-
-    // Ativa o novo slide (torna visível)
-    newItem.classList.add('active');
-
-    // Atualiza o indicador visual (bolinha e número)
-    indicator.querySelector('ul li.active').classList.remove('active');
-    dots[newIndex].classList.add('active');
-    indicator.querySelector('.number').innerHTML = '0' + (newIndex + 1);
-
-    // Atualiza o índice ativo para o novo slide
-    active = newIndex;
-}
-
-// ---------------------- CONTROLES DOS BOTÕES ----------------------
-
-// Clique no botão "Próximo"
-nextButton.onclick = () => {
-    // Calcula o próximo índice (loopando para o início se chegar no fim)
-    let newIndex = active + 1 > lastPosition ? 0 : active + 1;
-
-    // Atualiza o slide para o próximo com animação para a direita
-    updateSlide(newIndex, 'right');
-};
-
-// Clique no botão "Anterior"
-prevButton.onclick = () => {
-    // Calcula o índice anterior (loopando para o último se chegar no início)
-    let newIndex = active - 1 < 0 ? lastPosition : active - 1;
-
-    // Atualiza o slide para o anterior com animação para a esquerda
-    updateSlide(newIndex, 'left');
-};
-
-// ---------------------- MODAIS - JANELAS FLUTUANTES ----------------------
-
 /*
-Aqui criamos uma função para abrir e fechar os modais correspondentes a cada item
-com a descrição detalhada, que aparece quando clicamos no botão "Saiba Mais".
+  Projeto: JavaScript responsável pelas animações 
+  Autor: Bruno dos Santos Carvalho
+  GitHub: https://github.com/bnocrv
+  Contato: bnocrv@proton.me
+  Criação: 06/07/2025
+  Última Atualização: 16/07/2025
+  Mudanças: Adicionado footer e correção no carrossel dos itens
+  Licença: MIT
+  Versão 1.0
 */
 
-// Pega todos os botões "Saiba Mais" dos itens
+
+// ======================= VARIÁVEIS GLOBAIS =======================
+
+// Botões de navegação do carrossel
+let prevButton = document.getElementById('prev');     // Botão de voltar (esquerda)
+let nextButton = document.getElementById('next');     // Botão de avançar (direita)
+
+// Container principal (seção inteira) e itens do carrossel
+let container = document.querySelector('.container');         // Seção onde está o carrossel
+let items = container.querySelectorAll('.list .item');        // Todos os itens (doces) no carrossel
+
+// Elementos dos indicadores (bolinhas e número)
+let indicator = document.querySelector('.indicators');        // Div que contém número + bolinhas
+let dots = indicator.querySelectorAll('ul li');               // Lista de bolinhas
+let list = container.querySelector('.list');                  // Lista que agrupa os slides
+
+// Índice atual visível (começa no 0 = primeiro slide)
+let active = 0;
+
+// Último índice possível (quantidade de itens - 1)
+let lastPosition = items.length - 1;
+
+// ======================= FUNÇÃO DE TROCA DE SLIDE =======================
+
+/**
+ * Atualiza o carrossel para mostrar um novo slide
+ * @param {number} newIndex - Índice do slide desejado (0, 1, 2...)
+ * @param {string} direction - 'left' ou 'right' (define direção da transição)
+ */
+function updateSlide(newIndex, direction) {
+  // Remove a classe "active" do slide atual
+  items[active].classList.remove('active');
+
+  // Adiciona a classe "active" ao novo slide
+  items[newIndex].classList.add('active');
+
+  // Atualiza os indicadores (bolinhas)
+  dots[active].classList.remove('active');      // Remove o destaque do antigo
+  dots[newIndex].classList.add('active');       // Destaca o novo slide
+
+  // Atualiza o número exibido (01, 02, 03)
+  indicator.querySelector('.number').textContent = '0' + (newIndex + 1);
+
+  // Atualiza o índice atual
+  active = newIndex;
+}
+
+// ======================= BOTÃO "PRÓXIMO" =======================
+
+nextButton.onclick = () => {
+  // Se estiver no último, volta para o primeiro
+  let nextIndex = active + 1 > lastPosition ? 0 : active + 1;
+
+  // Atualiza o slide com direção "direita"
+  updateSlide(nextIndex, 'right');
+};
+
+// ======================= BOTÃO "ANTERIOR" =======================
+
+prevButton.onclick = () => {
+  // Se estiver no primeiro, volta para o último
+  let prevIndex = active - 1 < 0 ? lastPosition : active - 1;
+
+  // Atualiza o slide com direção "esquerda"
+  updateSlide(prevIndex, 'left');
+};
+
+// ======================= MODAIS - SAIBA MAIS =======================
+
+/**
+ * Captura todos os botões "Saiba Mais" visíveis nos produtos
+ */
 let buttons = document.querySelectorAll('.information');
 
-// Para cada botão, adicionamos o evento de abrir o modal correto
+/**
+ * Para cada botão, adiciona o evento de abrir o modal correspondente
+ */
 buttons.forEach((button, index) => {
-    button.addEventListener('click', () => {
-        openModal(index);
-    });
+  button.addEventListener('click', () => {
+    openModal(index);
+  });
 });
 
 /**
- * Função para abrir o modal e mostrar a descrição do item correspondente.
- * @param {number} index - Índice do item no carrossel.
+ * Função que cria e exibe um modal com os dados do produto clicado
+ * @param {number} index - Índice do item no carrossel
  */
 function openModal(index) {
-    // Cria o elemento do modal dinamicamente
-    const modal = document.createElement('div');
-    modal.classList.add('modal');
+  // Cria o elemento do modal
+  const modal = document.createElement('div');     // Cria uma div
+  modal.classList.add('modal');                    // Adiciona a classe "modal"
 
-    // Conteúdo do modal
-    modal.innerHTML = `
-      <div class="modal-content">
-        <span class="close">&times;</span>
-        <h3>${items[index].querySelector('h2').textContent}</h3>
-        <p>${items[index].querySelector('.description').textContent}</p>
-      </div>
-    `;
+  // Pega o título e descrição do produto
+  const title = items[index].querySelector('h2').textContent;
+  const description = items[index].querySelector('.description').textContent;
 
-    // Adiciona o modal ao body para ficar visível
-    document.body.appendChild(modal);
+  // Conteúdo interno do modal (HTML)
+  modal.innerHTML = `
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h3>${title}</h3>
+      <p>${description}</p>
+    </div>
+  `;
 
-    // Exibe o modal com flexbox (visível)
-    modal.style.display = 'flex';
+  // Adiciona o modal na página
+  document.body.appendChild(modal);
 
-    // Evento para fechar modal ao clicar no "X"
-    modal.querySelector('.close').onclick = () => {
-        closeModal(modal);
-    };
+  // Torna o modal visível com display: flex
+  modal.style.display = 'flex';
 
-    // Fecha modal ao clicar fora do conteúdo (na área escura)
-    modal.onclick = (e) => {
-        if (e.target === modal) {
-            closeModal(modal);
-        }
-    };
+  // Evento para fechar o modal ao clicar no X
+  modal.querySelector('.close').onclick = () => {
+    closeModal(modal);
+  };
+
+  // Evento para fechar o modal ao clicar fora da caixa de conteúdo
+  modal.onclick = (e) => {
+    if (e.target === modal) {
+      closeModal(modal);
+    }
+  };
 }
 
 /**
- * Remove o modal da tela
- * @param {HTMLElement} modal - Elemento modal a ser removido
+ * Função que fecha e remove o modal da tela
+ * @param {HTMLElement} modal - Modal a ser removido
  */
 function closeModal(modal) {
-    modal.style.display = 'none';
-    modal.remove();
+  modal.style.display = 'none';   // Esconde
+  modal.remove();                 // Remove da estrutura da página
 }
