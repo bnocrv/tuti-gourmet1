@@ -1,42 +1,97 @@
+<!--
+  Projeto: Site da Doceria e Chocolateria Tuti Gourmet
+  Autor: Bruno dos Santos Carvalho
+  GitHub: https://github.com/bnocrv
+  Contato: bnocrv@proton.me
+  Criação: 06/07/2025
+  Última Atualização: 16/07/2025
+  Mudanças: Adicionado footer e correção no carrossel dos itens
+  Licença: MIT
+  Versão 1.0
+-->
+
+
 <!DOCTYPE html>
+<!-- Informa ao navegador que o documento segue o padrão HTML5 -->
+
 <html lang="pt-br">
+<!-- Define o idioma principal como português do Brasil -->
+
 <head>
   <meta charset="UTF-8" />
+  <!-- Define a codificação de caracteres como UTF-8 (suporta acentos, ç, etc.) -->
+
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Faça Seu Pedido - FP Selection</title>
-  <link rel="stylesheet" href="styles.css" />
+  <!-- Faz a página se ajustar a diferentes tamanhos de tela (responsiva) -->
+
+  <title>Faça Seu Pedido - Tuti Gourmet</title>
+  <!-- Título da aba do navegador -->
+
+  <link rel="stylesheet" href="style.css" />
+  <!-- Conecta esta página ao arquivo de estilos CSS global -->
 </head>
+
 <body>
+  <!-- Início do conteúdo visível da página -->
+
+  <!-- ========================= CABEÇALHO ========================= -->
   <header>
-    <img src="./img/logotuti.png" alt="logo fp" />
+    <!-- Cabeçalho fixo com logo e navegação -->
+    <img src="./img/logotuti.png" alt="Logo Tuti Gourmet" />
+    <!-- Logo da marca (ajuste o caminho da imagem se necessário) -->
+
     <nav>
+      <!-- Menu de navegação principal -->
       <ul>
         <li><a href="index.html">Home</a></li>
+        <!-- Link para a página inicial -->
+
         <li><a href="nossa-historia.html">Nossa História</a></li>
+        <!-- Link para a página sobre a trajetória da marca -->
+
         <li><a href="faça-seu-pedido.html">Faça Seu Pedido</a></li>
+        <!-- Link para esta página (poderia ser destacado via CSS se quiser) -->
       </ul>
     </nav>
   </header>
+  <!-- ========================= FIM DO CABEÇALHO ========================= -->
 
+  <!-- ========================= CONTEÚDO PRINCIPAL ========================= -->
   <section class="container" style="text-align: center;">
+    <!-- Seção principal com alinhamento centralizado -->
+
     <h1>Faça Seu Pedido</h1>
+    <!-- Título principal da página -->
+
     <p>Entre em contato conosco pelo WhatsApp para fazer seu pedido:</p>
+    <!-- Instrução ao cliente -->
+
     <a 
       href="https://wa.me/5521997847199" 
       target="_blank" 
       style="
-        display: inline-block; 
-        background-color: #25D366; 
-        color: white; 
-        padding: 15px 30px; 
-        border-radius: 50px; 
-        font-weight: bold; 
-        text-decoration: none; 
-        font-size: 1.2rem; 
-        margin-top: 20px;
+        display: inline-block;        /* Faz o botão ser tratado como bloco */
+        background-color: #25D366;   /* Cor verde característica do WhatsApp */
+        color: white;                /* Cor do texto branco */
+        padding: 15px 30px;          /* Espaçamento interno do botão */
+        border-radius: 50px;         /* Arredonda o botão em forma de pílula */
+        font-weight: bold;           /* Texto em negrito */
+        text-decoration: none;       /* Remove o sublinhado padrão de links */
+        font-size: 1.2rem;           /* Tamanho do texto maior */
+        margin-top: 20px;            /* Espaço acima do botão */
       ">
       Enviar WhatsApp
     </a>
+    <!-- Botão que leva ao WhatsApp com número pré-configurado -->
   </section>
+  <!-- ========================= FIM DO CONTEÚDO PRINCIPAL ========================= -->
+
+  <!-- ========================= RODAPÉ ========================= -->
+<footer class="footer">
+  <p class="footer-main">&copy; 2025 Tuti Gourmet. Todos os direitos reservados.</p>
+  <p class="footer-dev">Desenvolvido por Bruno dos Santos Carvalho</p>
+</footer>
+
+
 </body>
 </html>
