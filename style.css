@@ -357,20 +357,32 @@ section .list .item .content .information {
 
 /* ===================== FOOTER ===================== */
 .footer {
-  text-align: center;
-  padding: 10px;
-  background-color: #000000;
-  border-top: 1px solid #ffffff; /* Linha branca fina acima do footer */
+  text-align: center;           /* Centraliza o texto horizontalmente */
+  padding: 10px;                /* Espaçamento interno de 10 pixels em todos os lados */
+  background-color: #000000;    /* Fundo preto */
+  border-top: 1px solid #ffffff; /* Linha fina branca na parte superior do footer */
 }
 
 .footer-main {
-  color: #ff69b4; /* Rosa (pink) */
-  font-size: 1em;
-  margin: 5px 0;
+  color: #ff69b4;               /* Cor do texto em rosa (pink) */
+  font-size: 1em;               /* Tamanho da fonte padrão */
+  margin: 2px -2;                /* Margem vertical de 5 pixels (acima e abaixo) */
 }
 
 .footer-dev {
-  color: #ffffff;
-  font-size: 0.8em;
-  margin: 5px 0;
+  color: #ffffff;               /* Cor do texto em branco */
+  font-size: 0.8em;             /* Fonte menor que o padrão para informações secundárias */
+  margin: 1px 0;                /* Margem vertical de 5 pixels (acima e abaixo) */
+}
+
+.footer-dev a {
+  color: inherit;          /* Herdar a cor do texto pai */
+  text-decoration: none;   /* Remove o sublinhado */
+  cursor: pointer;         /* Cursor de link para indicar que é clicável */
+}
+
+/* Efeito hover suave */
+.footer-dev a:hover {
+  color: #ff69b4;          /* Deixa mudar para rosa no hover */
+  text-decoration: underline; /* Ou sublinhado só no hover */
 }
