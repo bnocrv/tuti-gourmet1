@@ -366,7 +366,7 @@ section .list .item .content .information {
 .footer-main {
   color: #ff69b4;               /* Cor do texto em rosa (pink) */
   font-size: 1em;               /* Tamanho da fonte padrão */
-  margin: 2px -2;                /* Margem vertical de 5 pixels (acima e abaixo) */
+  margin: 2px -5;                /* Margem vertical de 5 pixels (acima e abaixo) */
 }
 
 .footer-dev {
